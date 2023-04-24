@@ -1,7 +1,11 @@
-import Input from "@/components/Input";
+import Input from "../components/Input";
 import { useCallback, useState } from "react";
+import axios from "axios";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Auth = () => {
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -10,6 +14,35 @@ const Auth = () => {
   const toggleView = useCallback(() => {
     setView((currentView) => (currentView === "login" ? "register" : "login"));
   }, []);
+  const login = useCallback(async () => {
+    await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+      callbackUrl: "/",
+    })
+      .then(() => {
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [email, password, router]);
+  const register = useCallback(async () => {
+    axios
+      .post("/api/register", {
+        email,
+        username,
+        password,
+      })
+      .then(() => {
+        login();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [email, username, password]);
+
   return (
     <div className=" bg-no-repeat relative  bg-[url('/images/BackgroundCN.webp')] w-full h-full bg-center bg-cover">
       <div className="bg-black w-full h-full md:bg-opacity-60">
@@ -50,7 +83,10 @@ const Auth = () => {
                 value={password}
               />
             </div>
-            <button className="text-white w-full bg-red-700 p-4 mt-6 rounded-md hover:bg-red-600 transition ease-in-out">
+            <button
+              onClick={view === "login" ? login : register}
+              className="text-white w-full bg-red-700 p-4 mt-6 rounded-md hover:bg-red-600 transition ease-in-out"
+            >
               {" "}
               {view === "login" ? "Login" : "Register"}
             </button>
