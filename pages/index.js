@@ -1,6 +1,4 @@
 import Nav from "@/components/Nav";
-import { getUserData } from "@/library/userData";
-
 import { getSession } from "next-auth/react";
 
 export async function getServerSideProps(context) {
@@ -15,16 +13,12 @@ export async function getServerSideProps(context) {
     };
   }
 
-  const { user } = await getUserData(context);
-
   return {
-    props: {
-      user,
-    },
+    props: {},
   };
 }
 
-export default function Home({ user }) {
+export default function Home() {
   return (
     <>
       <Nav />

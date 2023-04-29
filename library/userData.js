@@ -1,30 +1,22 @@
-import client from "@/library/prismadb";
 import { getSession } from "next-auth/react";
+import client from "./prismadb";
 
-export async function getUserData(context) {
-  // Fetch the session from NextAuth
-  const session = await getSession({ req: context.req, res: context.res });
+export async function userData(req) {
+  const session = await getSession({ req });
 
-  // Check if the session is valid
   if (!session) {
-    return {
-      user: null,
-    };
+    throw new Error("Not signed in");
   }
 
-  // Fetch the user data from the Prisma client
   const user = await client.user.findUnique({
-    where: { email: session.user.email },
-    select: {
-      id: true,
-      username: true,
-      image: true,
-      email: true,
+    where: {
+      email: session.user.email,
     },
   });
 
-  // Return the user data
-  return {
-    user,
-  };
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  return user;
 }

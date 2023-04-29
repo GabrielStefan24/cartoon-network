@@ -1,12 +1,33 @@
 import NavItem from "./NavItem";
 import { GoChevronDown } from "react-icons/go";
 import Mobile from "./Mobile";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
+import { BsSearch, BsBell } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
+import AccountMenu from "./AccountMenu";
 
 const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+  const [toggleNav, setToggleNav] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 66) {
+        setToggleNav(true);
+      } else {
+        setToggleNav(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const toggleMenu = useCallback(() => {
     setShowMenu((current) => !current);
+  }, []);
+  const toggleProfile = useCallback(() => {
+    setShowProfile((current) => !current);
   }, []);
   return (
     <nav className="w-full fixed z-30">
@@ -20,14 +41,39 @@ const Nav = () => {
           <NavItem text="My List" />
         </div>
         <div className="lg:hidden cursor-pointer flex items-center gap-3 ml-10 relative">
-          <p onClick={toggleMenu} className="text-white text-lg ">
+          <p onClick={toggleMenu} className="text-white hover:text-slate-300 ">
             Browse
           </p>
           <GoChevronDown
             onClick={toggleMenu}
-            className="text-white transition "
+            className={`text-white hover:text-slate-300 cursor-pointer ${
+              showMenu ? " rotate-180 " : " rotate-0"
+            }`}
           />
           {showMenu && <Mobile />}
+        </div>
+        <div className="flex ml-auto gap-6 ">
+          <div className=" text-slate-200 hover:text-slate-400 cursor-pointer">
+            <BsSearch />
+          </div>
+          <div className=" text-slate-200 hover:text-slate-400 cursor-pointer">
+            <BsBell />
+          </div>
+          <div className="flex gap-2 text-slate-200 items-center relative">
+            <CgProfile
+              size={18}
+              className="hover:text-slate-400 cursor-pointer"
+              onClick={() => toggleProfile()}
+            />
+            <GoChevronDown
+              size={18}
+              className={`hover:text-slate-400 cursor-pointer ${
+                showProfile ? " rotate-180 " : " rotate-0"
+              }`}
+              onClick={() => toggleProfile()}
+            />
+            <AccountMenu showProfile={showProfile} />
+          </div>
         </div>
       </div>
     </nav>

@@ -1,7 +1,7 @@
 import React from "react";
 const NavItem = ({ text }) => {
   return (
-    <div className=" text-lg text-white cursor-pointer underline-animation">
+    <div className="  text-white cursor-pointer hover:text-slate-300 font-sans">
       {text}
     </div>
   );
