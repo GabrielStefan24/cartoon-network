@@ -20,6 +20,7 @@ const AddFavorite = ({ movieId }) => {
     }
 
     const updatedFavoriteIds = response?.data?.favoriteIds;
+    console.log(updatedFavoriteIds);
 
     mutate({
       ...user,

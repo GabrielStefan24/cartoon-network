@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         },
       },
     });
-
+    console.log(favoriteMovies);
     return res.status(200).json(favoriteMovies);
   } catch (error) {
     console.log(error);

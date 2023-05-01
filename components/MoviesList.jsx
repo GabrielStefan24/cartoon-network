@@ -1,6 +1,9 @@
 import MovieCard from "./MovieCard";
-
+import { useEffect } from "react";
 const MoviesList = ({ title, data }) => {
+  useEffect(() => {
+    console.log(`Data for ${title}:`, data);
+  }, [title, data]);
   return (
     <div className="px-4 md:px-14 mt-4 space-y-5">
       <p className="text-white text-xl lg:text-2xl font-bold">{title}</p>

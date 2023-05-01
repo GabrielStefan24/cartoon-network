@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       }
       const updatedUserPost = await client.user.update({
         where: {
-          email: user.email || "",
+          email: user.email,
         },
         data: {
           favoriteIds: {
@@ -24,6 +24,7 @@ export default async function handler(req, res) {
           },
         },
       });
+
       return res.status(200).json(updatedUserPost);
     }
     if (req.method === "DELETE") {
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
       }
       const updatedUserDelete = await client.user.update({
         where: {
-          email: user.email || "",
+          email: user.email,
         },
         data: {
           favoriteIds: {
@@ -48,6 +49,7 @@ export default async function handler(req, res) {
           },
         },
       });
+      console.log(updatedUserDelete);
       return res.status(200).json(updatedUserDelete);
     }
     return res.status(405).end();
