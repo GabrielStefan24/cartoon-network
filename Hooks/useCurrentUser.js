@@ -2,7 +2,7 @@ import useSWR from "swr";
 import axios from "axios";
 
 const useCurrentUser = () => {
-  const { data, error, isLoading } = useSWR("/api/sessionUser", (url) =>
+  const { data, error, isLoading, mutate } = useSWR("/api/sessionUser", (url) =>
     axios.get(url).then((res) => res.data)
   );
 
@@ -10,6 +10,7 @@ const useCurrentUser = () => {
     data,
     error,
     isLoading,
+    mutate,
   };
 };
 
