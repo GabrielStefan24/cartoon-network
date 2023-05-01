@@ -3,8 +3,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
+
 const Auth = () => {
   const router = useRouter();
   const [username, setUsername] = useState("");
@@ -91,20 +90,7 @@ const Auth = () => {
               {" "}
               {view === "login" ? "Login" : "Register"}
             </button>
-            <div className="flex flex-row items-center gap-4 mt-10 justify-center">
-              <button
-                onClick={() => signIn("google", { callbackUrl: "/" })}
-                className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:opacity-70 transition"
-              >
-                <FcGoogle size={32} />
-              </button>
-              <button
-                onClick={() => signIn("github", { callbackUrl: "/" })}
-                className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:opacity-70 transition"
-              >
-                <FaGithub size={32} />
-              </button>
-            </div>
+
             <p className=" text-neutral-500 mt-6 text-center text-xl">
               {view === "login"
                 ? "Use the test account or "

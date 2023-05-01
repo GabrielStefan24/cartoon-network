@@ -1,9 +1,9 @@
-import useSWR from "swr";
+import useSwr from "swr";
 import axios from "axios";
 
-const useMovies = () => {
-  const { data, error, isLoading } = useSWR(
-    "/api/Movies",
+const useMovie = (id) => {
+  const { data, error, isLoading } = useSwr(
+    id ? `/api/movies/${id}` : null,
     (url) => axios.get(url).then((res) => res.data),
     {
       revalidateIfStale: false,
@@ -17,4 +17,5 @@ const useMovies = () => {
     isLoading,
   };
 };
-export default useMovies;
+
+export default useMovie;

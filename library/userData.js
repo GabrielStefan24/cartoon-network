@@ -1,10 +1,11 @@
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
 import client from "./prismadb";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-export async function userData(req) {
-  const session = await getSession({ req });
+export async function userData(req, res) {
+  const session = await getServerSession(req, res, authOptions);
 
-  if (!session) {
+  if (!session?.user?.email) {
     throw new Error("Not signed in");
   }
 

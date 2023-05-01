@@ -14,10 +14,11 @@ const AddFavorite = ({ movieId }) => {
   const toggle = useCallback(async () => {
     let response;
     if (isFavorite) {
-      response = axios.delete("/api/favorite", { data: { movieId } });
+      response = await axios.delete("/api/favorite", { params: { movieId } });
     } else {
-      response = axios.post("/api/favorite", { movieId });
+      response = await axios.post("/api/favorite", { movieId });
     }
+
     const updatedFavoriteIds = response?.data?.favoriteIds;
 
     mutate({

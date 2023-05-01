@@ -2,19 +2,9 @@ import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
 import prismadb from "../../../library/prismadb";
 import { compare } from "bcrypt";
-import GitHubProvider from "next-auth/providers/github";
-import GoogleProvider from "next-auth/providers/google";
 
-export default NextAuth({
+export const authOptions = {
   providers: [
-    GitHubProvider({
-      clientId: process.env.GIT_ID,
-      clientSecret: process.env.GIT_SECRET,
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOG_ID,
-      clientSecret: process.env.GOOG_SECRET,
-    }),
     Credentials({
       id: "crd",
       name: "Credentials",
@@ -65,4 +55,5 @@ export default NextAuth({
     secret: process.env.NEXTAUTH_JWT_SECRET,
   },
   secret: process.env.NEXTAUTH_SECRET,
-});
+};
+export default NextAuth(authOptions);
