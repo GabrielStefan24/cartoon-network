@@ -31,7 +31,11 @@ const Nav = () => {
   }, []);
   return (
     <nav className="w-full fixed z-30">
-      <div className="px-6 py-6 md:px-32  flex flex-row items-center  ">
+      <div
+        className={`px-6 py-6 md:px-32  flex items-center transition duration-300 ${
+          toggleNav ? "bg-zinc-900 bg-opacity-90" : ""
+        }`}
+      >
         <img className="max-w-[55px] " src="/images/LogoCN.webp" alt="" />
         <div className=" hidden lg:flex flex-row gap-6 ml-10">
           <NavItem text="Home" />

@@ -1,8 +1,8 @@
-import useSwr from "swr";
+import useSWR from "swr";
 import axios from "axios";
 
 const useCurrentUser = () => {
-  const { data, error, isLoading } = useSwr("/api/sessionUser", (url) =>
+  const { data, error, isLoading } = useSWR("/api/sessionUser", (url) =>
     axios.get(url).then((res) => res.data)
   );
 

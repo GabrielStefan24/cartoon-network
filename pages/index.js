@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import { getSession } from "next-auth/react";
 
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <>
       <Nav />
+      <Hero />
     </>
   );
 }
