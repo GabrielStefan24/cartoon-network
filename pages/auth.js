@@ -41,7 +41,7 @@ const Auth = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [email, username, password]);
+  }, [email, username, password, login]);
 
   return (
     <div className=" bg-no-repeat relative  bg-[url('/images/BackgroundCN.webp')] w-full h-full bg-center bg-cover">

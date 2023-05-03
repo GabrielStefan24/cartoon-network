@@ -10,7 +10,7 @@ const AddFavorite = ({ movieId }) => {
   const isFavorite = useMemo(() => {
     const list = user?.favoriteIds || [];
     return list.includes(movieId);
-  });
+  }, [user, movieId]);
   const toggle = useCallback(async () => {
     let response;
     if (isFavorite) {
