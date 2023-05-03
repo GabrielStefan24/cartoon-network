@@ -6,7 +6,8 @@ export default async function handler(req, res) {
     return res.status(405).end();
   }
   try {
-    const { user } = await userData(req, res);
+    const user = await userData(req, res);
+  
     const favoriteMovies = await client.movie.findMany({
       where: {
         id: {
@@ -14,7 +15,7 @@ export default async function handler(req, res) {
         },
       },
     });
-    console.log(favoriteMovies);
+
     return res.status(200).json(favoriteMovies);
   } catch (error) {
     console.log(error);

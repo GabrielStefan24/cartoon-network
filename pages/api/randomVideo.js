@@ -7,8 +7,9 @@ export default async function handler(req, res) {
   }
   try {
     await userData(req, res);
-    const count = await client.movie.count();
-    const randomIndex = Math.floor(Math.random() * count);
+
+    // Generate a random index between 0 and 3 (inclusive)
+    const randomIndex = Math.floor(Math.random() * 4);
 
     const randomMovies = await client.movie.findMany({
       take: 1,

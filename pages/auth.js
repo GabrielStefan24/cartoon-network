@@ -107,7 +107,7 @@ const Auth = () => {
                 <span>
                   {" "}
                   Test Account <br />
-                  Username : guest2023 <br />
+                  Email : guest2023@yahoo.com <br />
                   Password : 12345678
                 </span>
               )}

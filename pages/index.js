@@ -4,6 +4,8 @@ import Nav from "@/components/Nav";
 import { getSession } from "next-auth/react";
 import useMovies from "@/Hooks/useMovies";
 import useFavorites from "@/Hooks/useFavorites";
+import Modal from "@/components/Modal";
+import useModal from "@/Hooks/useModal";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -25,9 +27,11 @@ export async function getServerSideProps(context) {
 export default function Home() {
   const { data: movies = [] } = useMovies();
   const { data: favorites = [] } = useFavorites();
+  const { isOpen, closeModal } = useModal();
 
   return (
     <>
+      <Modal visible={isOpen} onClose={closeModal} />
       <Nav />
       <Hero />
       <MoviesList title="Trending Now" data={movies} />

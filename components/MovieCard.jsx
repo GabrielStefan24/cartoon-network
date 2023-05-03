@@ -1,7 +1,9 @@
 import { BsFillPlayCircleFill } from "react-icons/bs";
 import AddFavorite from "./AddFavorite";
+import { useRouter } from "next/router";
 
 const MovieCard = ({ data }) => {
+  const router = useRouter();
   return (
     <div className="group col-span-1 relative h-[12vw]">
       <img
@@ -39,11 +41,11 @@ const MovieCard = ({ data }) => {
         >
           <div className="flex items-center gap-2">
             <div
-              onClick={() => {}}
               className="flex items-center justify-center w-7 h-7 lg:w-10 lg:h-10 "
+              onClick={() => router.push(`/watchMovie/${data?.id}`)}
             >
               <BsFillPlayCircleFill
-                size={28}
+                size={40}
                 className="cursor-pointer transition text-white hover:text-neutral-400 "
               />
             </div>

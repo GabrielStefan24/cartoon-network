@@ -11,7 +11,7 @@ const useFavorites = () => {
       revalidateOnReconnect: false,
     }
   );
-  console.log(data);
+
   return { data, error, isLoading, mutate };
 };
 

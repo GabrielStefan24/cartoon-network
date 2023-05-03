@@ -1,8 +1,8 @@
-import useSWR from "swr";
+import useSwr from "swr";
 import axios from "axios";
 
 const useHero = () => {
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading } = useSwr(
     "/api/randomVideo",
     (url) => axios.get(url).then((res) => res.data),
     {
