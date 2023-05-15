@@ -20,5 +20,5 @@ export async function userData(req, res) {
     throw new Error("User not found");
   }
 
-  return user;
+  return { user };
 }
