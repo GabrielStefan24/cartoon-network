@@ -2,10 +2,10 @@ import bcrypt from "bcrypt";
 import client from "@/library/prismadb";
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).end();
-  }
   try {
+    if (req.method !== "POST") {
+      return res.status(405).end();
+    }
     const { email, username, password } = req.body;
     const existingUser = await client.user.findUnique({
       where: {
@@ -26,9 +26,6 @@ export default async function handler(req, res) {
     });
     return res.status(200).json(user);
   } catch (error) {
-    console.log(error);
-    res
-      .status(500)
-      .json({ error: "An error occurred while processing your request." });
+    return res.status(400).json({ error: `Something went wrong: ${error}` });
   }
 }

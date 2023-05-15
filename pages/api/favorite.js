@@ -3,7 +3,7 @@ import { userData } from "@/library/userData";
 export default async function handler(req, res) {
   try {
     if (req.method === "POST") {
-      const user = await userData(req, res);
+      const { user } = await userData(req, res);
       const { movieId } = req.body;
 
       const existingMovie = await client.movie.findUnique({
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       return res.status(200).json(updatedUserPost);
     }
     if (req.method === "DELETE") {
-      const user = await userData(req, res);
+      const { user } = await userData(req, res);
       const { movieId } = req.query;
 
       const existingMovie = await client.movie.findUnique({
@@ -55,6 +55,6 @@ export default async function handler(req, res) {
     return res.status(405).end();
   } catch (error) {
     console.log(error);
-    return res.status(400).end();
+    return res.status(500).end();
   }
 }
