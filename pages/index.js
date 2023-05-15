@@ -7,6 +7,7 @@ import useFavorites from "@/Hooks/useFavorites";
 import Modal from "@/components/Modal";
 import useModal from "@/Hooks/useModal";
 
+
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
@@ -28,6 +29,7 @@ export default function Home() {
   const { data: movies = [] } = useMovies();
   const { data: favorites = [] } = useFavorites();
   const { isOpen, closeModal } = useModal();
+  console.log(movies);
 
   return (
     <>

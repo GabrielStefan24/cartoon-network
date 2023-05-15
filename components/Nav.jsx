@@ -6,10 +6,12 @@ import { BsSearch, BsBell } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import AccountMenu from "./AccountMenu";
 
+
 const Nav = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [toggleNav, setToggleNav] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 66) {
@@ -38,11 +40,11 @@ const Nav = () => {
       >
         <img className="max-w-[55px] " src="/images/LogoCN.webp" alt="" />
         <div className=" hidden lg:flex flex-row gap-6 ml-10">
-          <NavItem text="Home" />
-          <NavItem text="Popular" />
-          <NavItem text="Shows" />
-          <NavItem text="Movies" />
-          <NavItem text="My List" />
+          <NavItem text="Sci-fi" />
+          <NavItem text="Adventure" />
+          <NavItem text="Thriller" />
+          <NavItem text="Action" />
+          <NavItem text="Comedy" />
         </div>
         <div className="lg:hidden cursor-pointer flex items-center gap-3 ml-10 relative">
           <p onClick={toggleMenu} className="text-white hover:text-slate-300 ">
@@ -54,7 +56,7 @@ const Nav = () => {
               showMenu ? " rotate-180 " : " rotate-0"
             }`}
           />
-          {showMenu && <Mobile />}
+          <Mobile showMenu={showMenu} setShowMenu={setShowMenu} />
         </div>
         <div className="flex ml-auto gap-6 ">
           <div className=" text-slate-200 hover:text-slate-400 cursor-pointer">
