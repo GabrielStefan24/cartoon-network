@@ -6,7 +6,7 @@ import useMovies from "@/Hooks/useMovies";
 import useFavorites from "@/Hooks/useFavorites";
 import Modal from "@/components/Modal";
 import useModal from "@/Hooks/useModal";
-
+import { useState } from "react";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -26,6 +26,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home() {
+  const [filter, setFilter] = useState(null);
   const { data: movies = [] } = useMovies();
   const { data: favorites = [] } = useFavorites();
   const { isOpen, closeModal } = useModal();
@@ -34,9 +35,14 @@ export default function Home() {
   return (
     <>
       <Modal visible={isOpen} onClose={closeModal} />
-      <Nav />
+      <Nav setFilter={setFilter} />
       <Hero />
-      <MoviesList title="Trending Now" data={movies} />
+      <MoviesList
+        title="Trending Now"
+        data={movies.filter((movie) =>
+          filter ? movie.genre === filter : true
+        )}
+      />
       <MoviesList title="My list" data={favorites} />
     </>
   );

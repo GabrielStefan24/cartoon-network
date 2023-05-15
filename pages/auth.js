@@ -1,26 +1,8 @@
 import Input from "../components/Input";
 import { useCallback, useState } from "react";
 import axios from "axios";
-import { getSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  if (session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-}
-
 
 const Auth = () => {
   const router = useRouter();

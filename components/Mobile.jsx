@@ -34,7 +34,7 @@ function useMenuAnimation(showMenu) {
 
   return scope;
 }
-const Mobile = ({ showMenu }) => {
+const Mobile = ({ showMenu, setFilter }) => {
   const scope = useMenuAnimation(showMenu);
 
   return (
@@ -45,20 +45,41 @@ const Mobile = ({ showMenu }) => {
       ref={scope}
     >
       <ul className=" bg-black/95 flex flex-col gap-6 py-5 ">
-        <li className="px-4 hover:text-slate-300 text-white text-center text-base">
+        <li
+          className="px-4 hover:text-slate-300 text-white text-center text-base"
+          onClick={() => setFilter("Sci-fi")}
+        >
           Sci-fi
         </li>
-        <li className="px-4 hover:text-slate-300 text-white text-center text-base">
+        <li
+          className="px-4 hover:text-slate-300 text-white text-center text-base"
+          onClick={() => setFilter("Adventure")}
+        >
           Adventure
         </li>
-        <li className="px-4 hover:text-slate-300 text-white text-center text-base">
+        <li
+          className="px-4 hover:text-slate-300 text-white text-center text-base"
+          onClick={() => setFilter("Thriller")}
+        >
           Thriller
         </li>
-        <li className="px-4 hover:text-slate-300 text-white text-center text-base">
+        <li
+          className="px-4 hover:text-slate-300 text-white text-center text-base"
+          onClick={() => setFilter("Action")}
+        >
           Action
         </li>
-        <li className="px-4 hover:text-slate-300 text-white text-center text-base">
+        <li
+          className="px-4 hover:text-slate-300 text-white text-center text-base"
+          onClick={() => setFilter("Comedy")}
+        >
           Comedy
+        </li>
+        <li
+          className="px-4 hover:text-slate-300 text-white text-center text-base"
+          onClick={() => setFilter(null)}
+        >
+          All
         </li>
       </ul>
     </div>

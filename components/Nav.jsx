@@ -6,8 +6,7 @@ import { BsSearch, BsBell } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import AccountMenu from "./AccountMenu";
 
-
-const Nav = () => {
+const Nav = ({ setFilter }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [toggleNav, setToggleNav] = useState(false);
@@ -38,13 +37,18 @@ const Nav = () => {
           toggleNav ? "bg-zinc-900 bg-opacity-90" : ""
         }`}
       >
-        <img className="max-w-[55px] " src="/images/LogoCN.webp" alt="" />
+        <img
+          className="max-w-[55px] cursor-pointer "
+          src="/images/LogoCN.webp"
+          alt=""
+          onClick={() => setFilter(null)}
+        />
         <div className=" hidden lg:flex flex-row gap-6 ml-10">
-          <NavItem text="Sci-fi" />
-          <NavItem text="Adventure" />
-          <NavItem text="Thriller" />
-          <NavItem text="Action" />
-          <NavItem text="Comedy" />
+          <NavItem setFilter={setFilter} text="Sci-fi" />
+          <NavItem setFilter={setFilter} text="Adventure" />
+          <NavItem setFilter={setFilter} text="Thriller" />
+          <NavItem setFilter={setFilter} text="Action" />
+          <NavItem setFilter={setFilter} text="Comedy" />
         </div>
         <div className="lg:hidden cursor-pointer flex items-center gap-3 ml-10 relative">
           <p onClick={toggleMenu} className="text-white hover:text-slate-300 ">
@@ -56,7 +60,11 @@ const Nav = () => {
               showMenu ? " rotate-180 " : " rotate-0"
             }`}
           />
-          <Mobile showMenu={showMenu} setShowMenu={setShowMenu} />
+          <Mobile
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+            setFilter={setFilter}
+          />
         </div>
         <div className="flex ml-auto gap-6 ">
           <div className=" text-slate-200 hover:text-slate-400 cursor-pointer">
