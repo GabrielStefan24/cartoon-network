@@ -4,7 +4,9 @@ import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
+
 const Auth = () => {
+  const [errors, setErrors] = useState({});
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +16,17 @@ const Auth = () => {
   const toggleView = useCallback(() => {
     setView((currentView) => (currentView === "login" ? "register" : "login"));
   }, []);
+
   const login = useCallback(async () => {
+    if (!validateEmail(email)) {
+      setErrors({
+        ...errors,
+        email:
+          "Please enter a valid email address.(@yahoo.com @gmail.com,etc..)",
+      });
+      return;
+    }
+
     await signIn("crd", {
       email,
       password,
@@ -27,8 +39,16 @@ const Auth = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [email, password, router]);
+  }, [email, password, router, errors]);
+
   const register = useCallback(async () => {
+    if (!validateEmail(email)) {
+      setErrors({
+        ...errors,
+        email: "Please enter a valid email address.",
+      });
+      return;
+    }
     axios
       .post("/api/register", {
         email,
@@ -41,8 +61,26 @@ const Auth = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [email, username, password, login]);
+  }, [email, username, password, login, errors]);
 
+  const validateEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+  const handleBlur = (e) => {
+    if (e.target.id === "email" && !validateEmail(email)) {
+      setErrors({
+        ...errors,
+        email:
+          "Please enter a valid email address.(@yahoo.com @gmail.com,etc..)",
+      });
+    } else {
+      setErrors({
+        ...errors,
+        email: null,
+      });
+    }
+  };
   return (
     <div className=" bg-no-repeat relative  bg-[url('/images/BackgroundCN.webp')] w-full h-full bg-center bg-cover">
       <div className="bg-black w-full h-full md:bg-opacity-60">
@@ -58,14 +96,20 @@ const Auth = () => {
             <h2 className="text-white text-4xl mb-10 font-semibold">
               {view === "login" ? "Sign in" : "Create account"}
             </h2>
-            <div className="flex flex-col gap-4">
+            <form className="flex flex-col gap-4">
               <Input
                 label="Email"
                 onChange={(e) => setEmail(e.target.value)}
+                onBlur={handleBlur}
                 id="Email"
                 type="email"
                 value={email}
               />
+              {errors.email && (
+                <p className="text-md md:text-xl text-red-500">
+                  {errors.email}
+                </p>
+              )}
               {view === "register" && (
                 <Input
                   label="Username"
@@ -82,7 +126,7 @@ const Auth = () => {
                 type="password"
                 value={password}
               />
-            </div>
+            </form>
             <button
               onClick={view === "login" ? login : register}
               className="text-white w-full bg-purple-700 p-4 mt-6 rounded-md hover:bg-purple-600 transition ease-in-out"

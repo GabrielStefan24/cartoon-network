@@ -30,7 +30,6 @@ export default function Home() {
   const { data: movies = [] } = useMovies();
   const { data: favorites = [] } = useFavorites();
   const { isOpen, closeModal } = useModal();
-  console.log(movies);
 
   return (
     <>

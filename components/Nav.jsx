@@ -24,12 +24,16 @@ const Nav = ({ setFilter }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
   const toggleMenu = useCallback(() => {
     setShowMenu((current) => !current);
   }, []);
+
   const toggleProfile = useCallback(() => {
     setShowProfile((current) => !current);
   }, []);
+
+
   return (
     <nav className="w-full fixed z-30">
       <div
