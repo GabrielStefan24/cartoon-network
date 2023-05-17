@@ -1,38 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cartoon App
 
-## Getting Started
 
-First, run the development server:
+Cartoon App is a web application where users can browse, watch, and favorite different cartoon movies. Users can filter movies by categories, providing a user-friendly interface for cartoon enthusiasts. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Account Creation and Authentication**: Users can create their own account or use the guest account to browse the website. Authentication is implemented using NextAuth.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- **Watch and Favorite Movies**: Users can watch their favorite cartoon movies directly on the site. They can also add movies to a favorites list for quick access in the future.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- **Filter by Categories**: Users can filter movies by categories, making it easier to find the type of cartoon movies they want to watch.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Login Page
 
-## Learn More
+<div align="center">
+  <img src="./public/images/Login.JPG" width="800" height="450" />
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+### Home Page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<div align="center">
+  <img src="./public/images/Cartoon.JPG" width="600" height="450" />
+</div>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Built With
 
-## Deploy on Vercel
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [Prisma](https://www.prisma.io/)
+- [NextAuth](https://next-auth.js.org/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Zustand](https://zustand.surge.sh/)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [SWR](https://swr.vercel.app/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [ESLint](https://eslint.org/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To run the application locally, follow these steps:
+
+1. Clone the repository.
+    ```
+    git clone https://github.com/GabrielStefan24/cartoon-app.git
+    ```
+
+
+2. Install dependencies.
+    ```
+    cd cartoon-app
+    npm install
+    ```
+
+3. Start the development server.
+    ```
+    npm run dev
+    ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details. <!-- Replace with your license -->
+
+## Contact
+
+ - [Email](mailto:sirbugabriel97@gmail.com) 
+ - [Linkedin](https://www.linkedin.com/in/gabriel-s-94a908236/)
