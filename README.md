@@ -75,4 +75,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact
 
-Your Name - [Email](mailto:sirbugabriel97@gmail.com) 
+Email - [Email](mailto:sirbugabriel97@gmail.com) 
