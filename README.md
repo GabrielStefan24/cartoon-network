@@ -76,3 +76,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Contact
 
  - [Email](mailto:sirbugabriel97@gmail.com) 
+ - [Linkedin](https://www.linkedin.com/in/gabriel-s-94a908236/)
