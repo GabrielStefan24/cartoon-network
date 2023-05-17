@@ -4,13 +4,15 @@
  - Create an account or use the guest account
  - Watch movies and also add them to favorites
  - Filter movies by categories
-### Screenshot 
+### Login
 <div align ="center">
-<img src="./assets/Modeselect.JPG" width="600" height="600"/>
-<img src="./assets/Play.JPG" width="600" height="600"/>
-
+<img src="./public/images/Login.JPG" width="1000" height="600"/>
 </div>
 
+### Home Page
+<div align ="center">
+<img src="./public/images/Cartoon.JPG" width="1000" height="1000"/>
+</div>
 ---
 
 ### Built with
