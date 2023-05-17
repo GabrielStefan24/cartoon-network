@@ -22,7 +22,7 @@ Cartoon App is a web application where users can browse, watch, and favorite dif
 ### Home Page
 
 <div align="center">
-  <img src="./public/images/Cartoon.JPG" width="800" height="450" />
+  <img src="./public/images/Cartoon.JPG" width="600" height="450" />
 </div>
 
 ## Built With
