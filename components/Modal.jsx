@@ -43,7 +43,7 @@ const Modal = ({ visible, onClose }) => {
             ></video>
             <div
               onClick={handleClose}
-              className="cursor-pointer right-3 top-3 h-10 md:w-12 w-10 rounded-full bg-black/80 flex items-center justify-center absolute"
+              className="cursor-pointer right-3 top-3 h-6 md:w-12 w-6 rounded-full bg-black/80 flex items-center justify-center absolute"
             >
               <AiOutlineClose className="text-white" size={18} />
             </div>

@@ -11,6 +11,9 @@ const WatchMovie = () => {
     <div className="h-screen w-screen bg-black">
       <nav className="fixed w-full p-6 z-20 flex items-center gap-6 bg-black/70 ">
         <AiOutlineArrowLeft
+          onClick={() => {
+            window.history.back();
+          }}
           className="text-white cursor-pointer transition hover:text-neutral-400 hover:scale-105"
           size={36}
         />

@@ -7,6 +7,7 @@ import useFavorites from "@/Hooks/useFavorites";
 import Modal from "@/components/Modal";
 import useModal from "@/Hooks/useModal";
 import { useState } from "react";
+import Head from "next/head";
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -33,6 +34,13 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Cartoon Network</title>
+        <meta
+          name="viewport"
+          content="initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+      </Head>
       <Modal visible={isOpen} onClose={closeModal} />
       <Nav setFilter={setFilter} />
       <Hero />
