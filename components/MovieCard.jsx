@@ -14,6 +14,7 @@ const MovieCard = ({ data }) => {
       />
       <div className="absolute top-0 transition duration-300 z-10 invisible sm:visible  w-full scale-0 group-hover:scale-110 group-hover:-translate-y-[6vw] group-hover:translate-x-[2vw] group-hover:opacity-100">
         <img
+          onClick={() => router.push(`/watchMovie/${data?.id}`)}
           src={data.thumbnailUrl}
           alt="Movie"
           className="

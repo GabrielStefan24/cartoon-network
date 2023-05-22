@@ -71,12 +71,6 @@ const Nav = ({ setFilter }) => {
           />
         </div>
         <div className="flex ml-auto gap-6 ">
-          <div className=" text-slate-200 hover:text-slate-400 cursor-pointer">
-            <BsSearch />
-          </div>
-          <div className=" text-slate-200 hover:text-slate-400 cursor-pointer">
-            <BsBell />
-          </div>
           <div className="flex gap-2 text-slate-200 items-center relative">
             <CgProfile
               size={18}

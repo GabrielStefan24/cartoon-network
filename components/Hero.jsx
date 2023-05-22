@@ -13,9 +13,9 @@ const Hero = () => {
   }, [openModal, data?.id]);
 
   return (
-    <div className="relative sm:h-[56.25vw] h-2/4 ">
+    <div className="relative sm:h-[40.25vw] h-2/4 ">
       <video
-        className="w-full sm:h-[56.25vw] h-full object-cover brightness-[50%]"
+        className="w-full sm:h-[40.25vw] h-full object-cover brightness-[50%]"
         autoPlay
         muted
         loop
