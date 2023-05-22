@@ -22,11 +22,11 @@ const Hero = () => {
         poster={data?.thumbnailUrl}
         src={data?.videoUrl}
       ></video>
-      <div className="absolute top-[40%] md:top-[35%] ml-10 md:ml-14 w-3/5">
-        <p className="text-white font-bold  text-xl md:text-5xl  h-full  ">
+      <div className="absolute top-[40%] md:top-[30%] ml-10 md:ml-14 w-3/5">
+        <p className="text-white font-bold  text-xl  md:text-4xl  h-full  ">
           {data?.title}
         </p>
-        <p className="text-white mt-4 text-[9px] md:text-[14px] lg:text-[18px] w-full lg:w-2/3">
+        <p className="text-white mt-4 text-[9px] md:text-[13px] lg:text-[16px] xl:text-[18px] w-full lg:w-2/3">
           {data?.description}
         </p>
 
